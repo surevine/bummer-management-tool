@@ -1,0 +1,61 @@
+{
+  "name": "management-tool",
+  "version": "0.0.0",
+  "description": "A management tool for the bummer / Buddycloud hosting stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "massah test",
+    "start": "node index",
+    "compile": "browserify public/js/main.js > public/script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/surevine/bummer-management-tool.git"
+  },
+  "keywords": [
+    "user",
+    "management",
+    "hosting",
+    "bummer",
+    "buddycloud",
+    "xmpp"
+  ],
+  "author": "Surevine <info@surevine.com>",
+  "license": "TBC",
+  "bugs": {
+    "url": "https://github.com/surevine/bummer-management-tool/issues"
+  },
+  "homepage": "https://github.com/surevine/bummer-management-tool",
+  "dependencies": {
+    "debug": "^2.0.0",
+    "method-override": "^2.2.0",
+    "ejs-locals": "^1.0.2",
+    "body-parser": "^1.8.2",
+    "errorhandler": "^1.2.0",
+    "express": "^4.9.3",
+    "helmet": "^0.4.1",
+    "node-xmpp-client": "^1.0.0-alpha7"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.2.0",
+    "browserify": "^5.12.0",
+    "browserify-shim": "^3.7.0",
+    "jquery": "^2.1.1"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "jquery": {
+      "exports": "$"
+    },
+    "bootstrap": {
+      "exports": "bootstrap",
+      "depends": {
+        "jquery": "$"
+      }
+    }
+  }
+}
