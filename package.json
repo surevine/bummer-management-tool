@@ -29,18 +29,16 @@
   "dependencies": {
     "debug": "^2.0.0",
     "method-override": "^2.2.0",
-    "ejs-locals": "^1.0.2",
     "body-parser": "^1.8.2",
     "errorhandler": "^1.2.0",
     "express": "^4.9.3",
     "helmet": "^0.4.1",
-    "node-xmpp-client": "^1.0.0-alpha7"
+    "node-xmpp-client": "^1.0.0-alpha7",
+    "express-handlebars": "^1.1.0"
   },
   "devDependencies": {
-    "bootstrap": "^3.2.0",
     "browserify": "^5.12.0",
-    "browserify-shim": "^3.7.0",
-    "jquery": "^2.1.1"
+    "browserify-shim": "^3.7.0"
   },
   "browserify": {
     "transform": [
@@ -48,14 +46,10 @@
     ]
   },
   "browserify-shim": {
-    "jquery": {
-      "exports": "$"
-    },
+    "jquery": "global:jQuery",
     "bootstrap": {
-      "exports": "bootstrap",
-      "depends": {
-        "jquery": "$"
-      }
+      "depends": "jquery:jQuery",
+      "exports": "bootstrap"
     }
   }
 }
