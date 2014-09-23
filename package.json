@@ -4,9 +4,8 @@
   "description": "A management tool for the bummer / Buddycloud hosting stack",
   "main": "index.js",
   "scripts": {
-    "test": "massah test",
+    "test": "./node_modules/.bin/massah test",
     "start": "node index",
-    "compile": "browserify public/js/main.js > public/script.js"
   },
   "repository": {
     "type": "git",
@@ -44,7 +43,9 @@
   },
   "devDependencies": {
     "browserify": "^5.12.0",
-    "browserify-shim": "^3.7.0"
+    "browserify-shim": "^3.7.0",
+    "massah": "^2.5.3",
+    "node-xmpp-server": "^1.0.0-alpha5"
   },
   "browserify": {
     "transform": [

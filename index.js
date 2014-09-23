@@ -20,8 +20,6 @@ var port = process.argv[2] || 3000
 helmet(app)
 
 var server = require('http').createServer(app)
-server.listen(port)
-console.log(('Server started and listening on port ' + port).green)
 
 app.disable('x-powered-by')
 app.use(express.static(__dirname + '/public'))
@@ -56,3 +54,10 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
     done(null, user)
 })
+
+if (process.mainModule === module) {
+    app.listen(port)
+    console.log(('Server started and listening on port ' + port).green)
+} else {
+    exports.httpServer = app
+}
