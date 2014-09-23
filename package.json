@@ -45,7 +45,8 @@
     "browserify": "^5.12.0",
     "browserify-shim": "^3.7.0",
     "massah": "^2.5.3",
-    "node-xmpp-server": "^1.0.0-alpha5"
+    "node-xmpp-server": "^1.0.0-alpha5",
+    "should": "^4.0.4"
   },
   "browserify": {
     "transform": [

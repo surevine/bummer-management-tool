@@ -1,6 +1,5 @@
 Feature: Authentication
 
-@Pending
 Scenario: Can log in successfully
 
     Given I visit the login page
