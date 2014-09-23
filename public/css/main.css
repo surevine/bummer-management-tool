@@ -1,1 +1,2 @@
-@import('../../node_modules/bootstrap/dist/css/buutstrap.css');
+@import url('login.css');
+@import url('dashboard.css');

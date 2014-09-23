@@ -34,7 +34,13 @@
     "express": "^4.9.3",
     "helmet": "^0.4.1",
     "node-xmpp-client": "^1.0.0-alpha7",
-    "express-handlebars": "^1.1.0"
+    "express-handlebars": "^1.1.0",
+    "passport-xmpp": "^1.0.1",
+    "passport": "^0.2.1",
+    "express-session": "^1.8.2",
+    "connect-flash": "^0.1.1",
+    "cloneextend": "0.0.3",
+    "colors": "^0.6.2"
   },
   "devDependencies": {
     "browserify": "^5.12.0",
