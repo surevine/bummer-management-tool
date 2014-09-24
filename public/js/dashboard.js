@@ -1,3 +1,5 @@
 $(document).ready(function() {
-    $('.user-table').DataTable()  
+    if ($('.user-table').find('tbody tr').length > 0) {
+        $('.user-table').DataTable()
+    }
 })
