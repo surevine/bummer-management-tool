@@ -12,12 +12,14 @@ var   express        = require('express')
     , session        = require('express-session')
     , flash          = require('connect-flash')
     , XmppStrategy   = require('passport-xmpp')
+    , storage        = require('./lib/storage')
 
 require('colors')
 
 var port = process.argv[2] || 3000
-
 helmet(app)
+
+storage.setConfiguration(config.storage)
 
 var server = require('http').createServer(app)
 

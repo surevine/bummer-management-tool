@@ -1,6 +1,7 @@
 -- admins table
 
-CREATE TABLE admins ("jid" TEXT NOT NULL PRIMARY KEY);
+CREATE TABLE admins ("jid" TEXT NOT NULL PRIMARY KEY, 
+    "domain" TEXT NOT NULL);
 
 -- accounts table
 

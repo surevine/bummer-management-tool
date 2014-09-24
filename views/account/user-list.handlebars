@@ -1,0 +1,35 @@
+<h1 class="page-header">User List</h1>
+
+{{#error}}
+    Error: {{ errorMessage }}
+{{/error}}
+
+<div class="table-responsive">
+    <table class="user-table table">
+        <thead>
+            <tr>
+               <th>User</th>
+               <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody class="table-striped table-hover">
+        {{#noUsers}}
+            <tr class="warning text-centered">
+                <td colspan="2">You currently have no users in your system</td>
+            </tr>
+        {{/noUsers}}
+        {{#each users}}
+            <tr>
+                <td>{{ this }}</td>
+                <td><em>Some actions...</em></td>
+            </tr>
+        {{/each}}
+        </tbody>
+        <tfoot>
+            <tr>
+               <th>User</th>
+               <th>Actions</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
