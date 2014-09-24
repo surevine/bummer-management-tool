@@ -1,7 +1,11 @@
 <h1 class="page-header">User List</h1>
 
 {{#error}}
-    Error: {{ errorMessage }}
+<div class="alert alert-block alert-error">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <h4>Error!</h4>
+  {{ errorMessage }}
+</div>
 {{/error}}
 
 <div class="table-responsive">
