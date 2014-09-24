@@ -1,8 +1,10 @@
 <h1 class="page-header">User List</h1>
 
 {{#error}}
-<div class="alert alert-block alert-error">
-  <button type="button" class="close" data-dismiss="alert">&times;</button>
+<div class="alert alert-block alert-danger" role="alert">
+  <button type="button" class="close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+  </button>
   <h4>Error!</h4>
   {{ errorMessage }}
 </div>
