@@ -41,7 +41,7 @@
     "cloneextend": "0.0.3",
     "colors": "^0.6.2",
     "pg": "^3.4.4",
-    "node-xmpp-core": "^1.0.0-alpha7"
+    "ltx": "^0.6.0"
   },
   "devDependencies": {
     "browserify": "^5.12.0",
