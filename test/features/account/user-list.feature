@@ -1,5 +1,10 @@
 Feature: User list
 
+Scenario: I am kicked from accounts page when not logged in
+
+    Given I visit the user list page
+    Then I am redirected to the login page
+
 @database=database-error
 Scenario: A database error returns expected message
 

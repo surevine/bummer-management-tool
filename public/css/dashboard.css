@@ -103,3 +103,24 @@ body.dashboard {
   display: inline-block;
   border-radius: 50%;
 }
+
+
+.element-invisible {
+    display: none;
+}
+
+table.user-table tbody tr td {
+    vertical-align: middle;
+}
+
+table.user-table tbody tr td i {
+    cursor: pointer;
+}
+
+table.user-table tbody tr td a i, table.user-table tbody tr td a:hover i {
+    color: #000000;
+}
+
+#delete-user span.jid {
+    font-weight: bold;
+}

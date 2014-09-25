@@ -12,6 +12,9 @@ module.exports = (function() {
                 case 'account':
                     url += 'account'
                     break
+                case 'user list':
+                    url += 'account/users'
+                    break
                 case 'home':
                     break
                 default:
@@ -46,7 +49,7 @@ module.exports = (function() {
             var driver = this.driver
             driver.wait(function() {
                 return driver.currentUrl(function(url, currentUrl) {
-                    return currentUrl.path === path
+                    return 0 === currentUrl.path.indexOf(path)
                 })
             }, 2000, 'Waiting to be redirected to the ' + page + ' page')
         })

@@ -26,7 +26,18 @@
         {{#each users}}
             <tr>
                 <td>{{ this }}</td>
-                <td><em>Some actions...</em></td>
+                <td>
+                    <a href="/user/{{ this }}">
+                    <i class="fa fa-info-circle fa-fw fa-2x" title="User information">
+                    <span class="element-invisible">User information</span></i>
+                    </a>
+                    <i class="fa fa-lock fa-fw fa-2x" title="Reset password">
+                    <span class="element-invisible">Reset password</span></i>
+
+                    <i class="fa fa-trash-o fa-fw fa-2x delete-user" title="Delete user" data-jid="{{ this }}">
+                    <span class="element-invisible">Delete user</span>
+                    </i>
+                </td>
             </tr>
         {{/each}}
         </tbody>
