@@ -28,8 +28,10 @@ var afterSuite = function(done) {
 
 var beforeScenario = function(annotations, context) {
     if (annotations.database) {
-        storage.setConfiguration(require('./mocks/storage/' + annotations.database))   
+        storage.setConfiguration(require('./utils/mocks/storage/' + annotations.database))   
     }
+    var stanzas = annotations.xmpp ? require('./utils/mocks/xmpp/' + annotations.xmpp) : []
+    server.setStanzas(stanzas)
 }
 
 module.exports = {

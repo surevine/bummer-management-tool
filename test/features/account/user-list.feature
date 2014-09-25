@@ -23,11 +23,15 @@ Scenario: XMPP authentication error returns expected error
     And I click the 'Users' link
     Then I see danger message 'Could not access your XMPP account, please contact support'
     And the user table has warning row 'You currently have no users in your system'
-    
-@Pending
+
+@database=is-admin
+@xmpp=user-list-service-unavailable
 Scenario: XMPP error (functionality not available or similar) returns expected errror
 
     Given I am logged in
+    And I click the 'Users' link
+    Then I see danger message 'Error retrieving user data, please contact support'
+    And the user table has warning row 'You currently have no users in your system'
     
 @Pending
 Scenario: No XMPP users shows expected table

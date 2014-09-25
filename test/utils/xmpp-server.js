@@ -4,6 +4,12 @@ var xmpp = require('node-xmpp-server')
   , c2s = null
   , debug = require('debug')('xmpp-server')
   
+var expectedStanzas = null
+
+var setStanzas = function(stanzas) {
+    expectedStanzas = stanzas
+}
+
 var startServer = function(done) {
     // Sets up the server.
     c2s = new xmpp.C2SServer({
@@ -39,6 +45,9 @@ var startServer = function(done) {
         // Stanza handling
         client.on('stanza', function(stanza) {
             debug('STANZA' + stanza)
+            var expected = expectedStanzas.shift()
+            if (expected.validator) expected.validator(stanza)
+            client.send(expected.response())
         })
 
         // On Disconnect event. When a client disconnects
@@ -48,15 +57,16 @@ var startServer = function(done) {
 
     })
 
-    if (done) done();
+    if (done) done()
 }
 
 module.exports = {
     startServer: startServer,
     stopServer: function(done) {
         if (!c2s) {
-            return done();
+            return done()
         }
-        c2s.shutdown(done);
-    }
+        c2s.shutdown(done)
+    },
+    setStanzas: setStanzas
 }
