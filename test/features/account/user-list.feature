@@ -57,3 +57,49 @@ Scenario: Does not show the admin user
     And I click the 'Users' link
     Then the user table has 5 users
     And none of the users is 'admin@localhost'
+    
+@database=is-admin
+@xmpp=user-list-with-11-users
+Scenario: Shows a list of XMPP users limited by the data table plugin
+
+    Given I am logged in
+    And I click the 'Users' link
+    Then the user table has 10 users
+
+@database=is-admin
+@xmpp=user-list-with-11-users
+Scenario: Can filter the user list table
+
+    Given I am logged in
+    And I click the 'Users' link
+    When I search users for 'if'
+    Then the user table has 2 users
+
+@pending
+@database=is-admin
+@xmpp=user-list-with-11-users
+Scenario: Can show all results
+
+    Given I am logged in
+    And I click the 'Users' link
+    When I select to view 24 users
+    Then the user table has 11 users
+    
+@Pending
+@database=is-admin
+@xmpp=user-list-with-11-users
+Scenario: I can skip to page 2
+
+    Given I am logged in
+    And I click the 'Users' link
+    When I click the '2' link
+    Then the user table has 1 users
+    
+@Pending
+@database=is-admin
+@xmpp=user-list-with-2-users
+Scenario: Five users are required for the datatable plugin to load
+
+    Given I am logged in
+    And I click the 'Users' link
+    Then I do not see the user search box
