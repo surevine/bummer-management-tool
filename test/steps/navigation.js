@@ -15,11 +15,20 @@ module.exports = (function() {
                 case 'user list':
                     url += 'account/users'
                     break
+                case 'user':
+                    url += 'user'
+                    break
                 case 'home':
                     break
                 default:
                     throw new Error('Unknown page')
             }
+            this.driver.get(url)
+        })
+        .given('I visit the user page of (.*)', function(user) {
+            var url = 'http://localhost:' +
+                helper.application.helper.port +
+                '/user/' + user
             this.driver.get(url)
         })
         .when('I refresh the page', function() {
@@ -39,6 +48,9 @@ module.exports = (function() {
                     break
                 case 'home':
                     path = '/'
+                    break
+                case 'user list':
+                    path = '/account/users'
                     break
                 case 'login':
                     path = '/login'
