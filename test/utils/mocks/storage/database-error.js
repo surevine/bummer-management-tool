@@ -1,3 +1,5 @@
-module.exports = [
-    { error: { serverError: true }, data: null }   
-]
+module.exports = function() {
+    return [
+        { error: { serverError: true }, data: null }   
+    ]
+}

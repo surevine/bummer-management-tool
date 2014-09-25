@@ -41,13 +41,19 @@ Scenario: No XMPP users shows expected table
     And I click the 'Users' link
     Then the user table has warning row 'You currently have no users in your system'
 
-@Pending
+@database=is-admin
+@xmpp=user-list-with-users
 Scenario: Shows a list of XMPP users
 
     Given I am logged in
-    
-    
-@Pending
+    And I click the 'Users' link
+    Then the user table has 5 users    
+
+@database=is-admin
+@xmpp=user-list-with-users
 Scenario: Does not show the admin user
 
-   Given I am logged in
+    Given I am logged in
+    And I click the 'Users' link
+    Then the user table has 5 users
+    And none of the users is 'admin@localhost'

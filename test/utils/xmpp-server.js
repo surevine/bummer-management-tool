@@ -7,6 +7,7 @@ var xmpp = require('node-xmpp-server')
 var expectedStanzas = null
 
 var setStanzas = function(stanzas) {
+    debug('Setting expected stanzas', stanzas)
     expectedStanzas = stanzas
 }
 
@@ -44,7 +45,7 @@ var startServer = function(done) {
 
         // Stanza handling
         client.on('stanza', function(stanza) {
-            debug('STANZA' + stanza)
+            debug('STANZA', stanza)
             var expected = expectedStanzas.shift()
             if (expected.validator) expected.validator(stanza)
             client.send(expected.response())
