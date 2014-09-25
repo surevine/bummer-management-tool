@@ -1,4 +1,5 @@
 var ltx = require('ltx')
+  , Xmpp = require('../../xmpp-helper')
 
 var from = null
 
@@ -9,11 +10,11 @@ module.exports = [
               stanza.attrs.to.should.equal('localhost')
               stanza.attrs.from.should.containEql('admin@localhost')
               stanza.attrs.type.should.equal('set')
-              var command = stanza.getChild('command', 'http://jabber.org/protocol/commands')
+              var command = stanza.getChild('command', Xmpp.NS_COMMANDS)
               command.should.exist
-              command.attrs.node.should.equal('http://jabber.org/protocol/admin#get-user-list')
+              command.attrs.node.should.equal(Xmpp.USER_LIST)
               command.attrs.action.should.equal('execute')
-              var x = command.getChild('x', 'jabber:x:data')
+              var x = command.getChild('x', Xmpp.NS_DATA_FORM)
               x.should.exist
               x.attrs.type.should.equal('submit')
               var fields = x.getChildren('field')
@@ -27,7 +28,7 @@ module.exports = [
                   { to: 'admin@localhost', from: 'localhost', type: 'error' }
               )
               stanza.c('error', { type: 'cancel' })
-                  .c('service-unavailable', { xmlns: 'urn:ietf:params:xml:ns:xmpp-stanzas' })
+                  .c('service-unavailable', { xmlns: Xmpp.NS_ERROR_STANZA })
               return stanza
           }
     }
