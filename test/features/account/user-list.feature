@@ -15,11 +15,14 @@ Scenario: No results shows expected error message (i.e. not an admin)
     And I click the 'Users' link
     Then I see danger message 'You are not an admin and therefore can not obtain user details'
     And the user table has warning row 'You currently have no users in your system'
-    
-@Pending
+
+@database=is-admin-xmpp-fail
 Scenario: XMPP authentication error returns expected error
 
     Given I am logged in
+    And I click the 'Users' link
+    Then I see danger message 'Could not access your XMPP account, please contact support'
+    And the user table has warning row 'You currently have no users in your system'
     
 @Pending
 Scenario: XMPP error (functionality not available or similar) returns expected errror
