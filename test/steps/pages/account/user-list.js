@@ -15,6 +15,9 @@ module.exports = (function() {
         .when('I select to view ([0-9]*) users', function(userCount) {
             this.driver.dropdownlist('select[name="DataTables_Table_0_length"]').option(userCount)
         })
+        .when('I click the \'(.*)\' header', function(header) {
+            this.driver.content(header, 'th', true).click()  
+        })
         .then('the user table has warning row \'(.*)\'', function(message) {
             this.driver.input('table.user-table tbody tr.warning td').text(function(text) {
                 text.should.containEql(message)
@@ -45,6 +48,13 @@ module.exports = (function() {
                 function() { throw new Error('Should not exist') },
                 function() {}
             )
+        })
+        .then('(.*) row ([0-9]*) contains \'(.*)\'', function(tableClass, row, content) {
+            this.driver.elements('table.' + tableClass + ' tbody tr').get(row - 1, function(element) {
+                element.text(function(text) {
+                    text.should.containEql(content) 
+                })
+            })
         })
     
     return library

@@ -100,3 +100,14 @@ Scenario: Five users are required for the datatable plugin to load
     Given I am logged in
     And I click the 'Users' link
     Then I do not see the user search box
+
+@database=is-admin
+@xmpp=user-list-with-11-users
+Scenario: I can sort the results
+
+    Given I am logged in
+    And I click the 'Users' link
+    When I click the 'User' header
+    Then user-table row 1 contains 'strickland@localhost'
+    And user-table row 2 contains 'sherman@localhost'
+    And user-table row 3 contains 'marvin@localhost'
