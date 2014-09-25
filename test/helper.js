@@ -1,4 +1,5 @@
 var server = require('./utils/xmpp-server')
+  , storage = require('../lib/storage/mock')
 
 var port = 3000
 var application = null
@@ -25,7 +26,11 @@ var afterSuite = function(done) {
     server.stopServer(done)
 }
 
-var beforeScenario = function(annotations, context) {}
+var beforeScenario = function(annotations, context) {
+    if (annotations.database) {
+        storage.setConfiguration(require('./mocks/storage/' + annotations.database))   
+    }
+}
 
 module.exports = {
     beforeSuite: beforeSuite,
