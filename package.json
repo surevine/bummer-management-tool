@@ -4,7 +4,7 @@
   "description": "A management tool for the bummer / Buddycloud hosting stack",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/massah test",
+    "test": "NODE_ENV=testing ./node_modules/.bin/massah test",
     "start": "node index"
   },
   "repository": {

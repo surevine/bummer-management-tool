@@ -6,11 +6,15 @@ Scenario: A database error returns expected message
     Given I am logged in
     And I click the 'Users' link
     Then I see danger message 'We experienced a server problem, apologies!'
-    
-@Pending
+    And the user table has warning row 'You currently have no users'
+
+@database=no-results
 Scenario: No results shows expected error message (i.e. not an admin)
 
     Given I am logged in
+    And I click the 'Users' link
+    Then I see danger message 'You are not an admin and therefore can not obtain user details'
+    And the user table has warning row 'You currently have no users in your system'
     
 @Pending
 Scenario: XMPP authentication error returns expected error
