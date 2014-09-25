@@ -75,17 +75,15 @@ Scenario: Can filter the user list table
     When I search users for 'if'
     Then the user table has 2 users
 
-@pending
 @database=is-admin
 @xmpp=user-list-with-11-users
 Scenario: Can show all results
 
     Given I am logged in
     And I click the 'Users' link
-    When I select to view 24 users
+    When I select to view 25 users
     Then the user table has 11 users
-    
-@Pending
+
 @database=is-admin
 @xmpp=user-list-with-11-users
 Scenario: I can skip to page 2
@@ -94,8 +92,7 @@ Scenario: I can skip to page 2
     And I click the 'Users' link
     When I click the '2' link
     Then the user table has 1 users
-    
-@Pending
+
 @database=is-admin
 @xmpp=user-list-with-2-users
 Scenario: Five users are required for the datatable plugin to load
