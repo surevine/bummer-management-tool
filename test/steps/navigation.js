@@ -3,7 +3,7 @@ var helper = require('massah/helper')
 
 module.exports = (function() {
     var library = helper.getLibrary()
-        .define('[Given|And|When] I visit the (.*) page', function(page) {
+        .define('[Given|And|When] I visit [the ]?(.*) page', function(page) {
             var url = 'http://localhost:' + helper.application.helper.port + '/'
             switch (page) {
                 case 'login':
@@ -19,6 +19,9 @@ module.exports = (function() {
                     url += 'user'
                     break
                 case 'home':
+                    break
+                case 'a random':
+                    url += 'a/random/page'
                     break
                 default:
                     throw new Error('Unknown page')
@@ -64,6 +67,11 @@ module.exports = (function() {
                     return 0 === currentUrl.path.indexOf(path)
                 })
             }, 2000, 'Waiting to be redirected to the ' + page + ' page')
+        })
+        .then('the browser returns 404 page', function() {
+            this.driver.getTitle(function(title) {
+                title.should.containEql('Page not found')
+            })
         })
     
     return library
