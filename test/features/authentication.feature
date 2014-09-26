@@ -29,6 +29,7 @@ Scenario: When I log out I am logged out
     When I click the 'Logout' link
     And I visit the account page
     Then I am redirected to the login page
+    And I see warning message 'You need to be logged in to see this page'
   
 Scenario: I am log in from the top bar
 
@@ -37,3 +38,12 @@ Scenario: I am log in from the top bar
     And I enter 'secret' in the 'password' field
     And I click the 'Sign in' button
     Then I am redirected to the account page
+    
+Scenario: Incorrect login details show me the login form and an error
+
+    Given I visit the login page
+    And I enter 'user@localhost' in the 'jid' field
+    And I enter 'not-secret-at-all' in the 'password' field
+    When I click the 'Sign in' button
+    Then I am redirected to the login page
+    And I see error message 'Username &/or password incorrect'

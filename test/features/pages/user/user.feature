@@ -18,8 +18,6 @@ Scenario: Not supplying a user JID redirects to user list page
     And I visit the user page
     Then I am redirected to the user list page
 
-
-@Pending
 @database=is-admin
 @xmpp=user-list-with-users
 Scenario: Shows a list of XMPP users

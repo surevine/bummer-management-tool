@@ -1,6 +1,17 @@
 <div class="container">
 
+
+    
   <form class="form-signin" role="form" action="/login" method="post">
+      
+    {{#isMessage}}
+    <div class="alert alert-{{ messageType }}" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong>{{ messageTitle }}</strong>
+          {{ messageDescription }}
+    </div>
+    {{/isMessage}}
+      
     <h2 class="form-signin-heading">Please sign in</h2>
     <input type="email" class="form-control" placeholder="JID" required autofocus name="jid">
     <input type="password" class="form-control" placeholder="Password" required name="password">
