@@ -29,8 +29,7 @@ Scenario: When I log out I am logged out
     When I click the 'Logout' link
     And I visit the account page
     Then I am redirected to the login page
-
-@Pending   
+  
 Scenario: I am log in from the top bar
 
     Given I visit the home page

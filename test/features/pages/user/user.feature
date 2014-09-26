@@ -17,3 +17,14 @@ Scenario: Not supplying a user JID redirects to user list page
     Given I am logged in
     And I visit the user page
     Then I am redirected to the user list page
+
+
+@Pending
+@database=is-admin
+@xmpp=user-list-with-users
+Scenario: Shows a list of XMPP users
+
+    Given I am logged in
+    And I click the 'Users' link
+    When I click to view information for user docbrown@localhost
+    Then I see the user information page

@@ -3,8 +3,8 @@ $(document).ready(function() {
         $('.user-table').DataTable()
     }
     
-    $('.user-table').bind('click', 'i.delete-user', function(e) {
-        $('#delete-user span.jid').html($(e.target).attr('data-jid'))
+    $('.user-table').on('click', 'i.delete-user', function(e) {
+        $('#delete-user span.jid').html($(this).attr('data-jid'))
         $('#delete-user').modal('show') 
     })
 })
