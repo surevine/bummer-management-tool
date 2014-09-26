@@ -1,4 +1,4 @@
-@Pending
+@Only
 Feature: End user session
 
 Scenario: I am kicked from end user session page when not logged in
@@ -6,7 +6,6 @@ Scenario: I am kicked from end user session page when not logged in
     Given I visit the end session page of docbrown@localhost
     Then I am redirected to the login page
 
-@Pending
 Scenario: I am kicked from invalid user page when not logged in 
 
     Given I visit the user page
