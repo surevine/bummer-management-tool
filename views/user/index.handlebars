@@ -8,6 +8,8 @@
 </div>
 {{/isMessage}}
 
+<h2>Online Resources</h2>
+
 <div class="table-responsive">
     <table class="user-table table">
         <thead>
@@ -25,7 +27,8 @@
         {{/noUserData}}
         {{#each userData}}
             <tr>
-                <td>{{ this }}</td>
+                <td>{{ this.onlineresources }}</td>
+                <td>{{ this.ipaddresses }}</td>
                 <td>
                     <em>Some actions</em>
                 </td>
