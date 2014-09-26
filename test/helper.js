@@ -30,15 +30,14 @@ var beforeScenario = function(annotations, context) {
     var databaseActions = []
     if (annotations.database) {
         annotations.database.split(',').forEach(function(database) {
-            databaseActions.concat(require('./utils/mocks/storage/' + database)())
+            databaseActions = databaseActions.concat(require('./utils/mocks/storage/' + database)())
         })
-        
     }
     storage.setConfiguration(databaseActions)
     var xmppActions = []
     if (annotations.xmpp) {
         annotations.xmpp.split(',').forEach(function(xmpp) {
-            xmppActions.concat(require('./utils/mocks/xmpp/' + xmpp)())
+            xmppActions = xmppActions.concat(require('./utils/mocks/xmpp/' + xmpp)())
         })
         
     }
