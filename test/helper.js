@@ -27,11 +27,22 @@ var afterSuite = function(done) {
 }
 
 var beforeScenario = function(annotations, context) {
+    var databaseActions = []
     if (annotations.database) {
-        storage.setConfiguration(require('./utils/mocks/storage/' + annotations.database)())
+        annotations.database.split(',').forEach(function(database) {
+            databaseActions.concat(require('./utils/mocks/storage/' + database)())
+        })
+        
     }
-    var stanzas = annotations.xmpp ? require('./utils/mocks/xmpp/' + annotations.xmpp)() : []
-    server.setStanzas(stanzas)
+    storage.setConfiguration(databaseActions)
+    var xmppActions = []
+    if (annotations.xmpp) {
+        annotations.xmpp.split(',').forEach(function(xmpp) {
+            xmppActions.concat(require('./utils/mocks/xmpp/' + xmpp)())
+        })
+        
+    }
+    server.setStanzas(xmppActions)
 }
 
 module.exports = {
