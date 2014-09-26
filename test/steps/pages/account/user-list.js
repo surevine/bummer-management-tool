@@ -18,6 +18,10 @@ module.exports = (function() {
         .when('I click the \'(.*)\' header', function(header) {
             this.driver.content(header, 'th', true).click()  
         })
+        .when('I click to view information for user (.*)', function(jid) {
+            this.driver.element('table.user-table a[href="/user/' + jid + '"]').click()
+            this.params.jid = jid
+        })
         .then('the user table has warning row \'(.*)\'', function(message) {
             this.driver.input('table.user-table tbody tr.warning td').text(function(text) {
                 text.should.containEql(message)
