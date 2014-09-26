@@ -11,7 +11,6 @@ Scenario: I am kicked from invalid user page when not logged in
     Given I visit the user page
     Then I am redirected to the login page
 
-@Pending
 @database=is-admin
 @xmpp=user-list-no-users
 Scenario: Not supplying a user JID redirects to user list page
