@@ -16,7 +16,7 @@ module.exports = function() {
                     '<iq to="admin@localhost" from="localhost" type="result">' +
                     '<command xmlns="http://jabber.org/protocol/commands" ' +
                         'sessionid="1234567890987654321" ' +
-                        'node="http://jabber.org/protocol/admin#user-stats" status="executing">' +
+                        'node="' + Xmpp.USER_STATS + '" status="executing">' +
                         '<x xmlns="jabber:x:data" type="form">' +
                             '<field var="accountjid" type="jid-single"/>' +
                         '</x>' +
@@ -34,7 +34,7 @@ module.exports = function() {
                     '<iq to="admin@localhost" from="localhost" type="result">' +
                         '<command xmlns="http://jabber.org/protocol/commands" ' +
                             'sessionid="1234567890987654321" ' +
-                            'node="http://jabber.org/protocol/admin#user-stats" status="completed">' +
+                            'node="' + Xmpp.USER_STATS + '" status="completed">' +
                             '<x xmlns="jabber:x:data" type="form">' +
                                  '<field var="max_items" type="list-multi"><value>all</value></field>' +
                                  '<field var="userjids"/>' +

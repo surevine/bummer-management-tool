@@ -135,3 +135,12 @@ Scenario: I can sort the results
     Then user-table row 1 contains 'under-the-sea-dance'
     And user-table row 2 contains 'twin-pines-mall'
     And user-table row 3 contains 'oak-park-cemetery'
+
+@database=is-admin
+@xmpp=user-does-not-exist
+Scenario: Shows error if user does not exist
+
+    Given I am logged in
+    And I visit the user page of mjfox@localhost
+    Then I see danger message 'User does not exist'
+    And the user table has warning row 'This user currently has no active sessions'
