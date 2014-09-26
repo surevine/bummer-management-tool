@@ -3,7 +3,7 @@ var helper = require('massah/helper')
 
 module.exports = (function() {
     var library = helper.getLibrary()
-        .define('[Given|And|When] I visit (?:the )?(.*) page', function(page) {
+        .define('[Given|And|When] I visit (?:the )?(.*) page$', function(page) {
             var url = 'http://localhost:' + helper.application.helper.port + '/'
             switch (page) {
                 case 'login':
@@ -28,7 +28,7 @@ module.exports = (function() {
             }
             this.driver.get(url)
         })
-        .given('I visit the user page of (.*)', function(user) {
+        .define('[Given|And|When] I visit the user page of (.*)', function(user) {
             var url = 'http://localhost:' +
                 helper.application.helper.port +
                 '/user/' + user
