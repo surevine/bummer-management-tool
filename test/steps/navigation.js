@@ -28,12 +28,6 @@ module.exports = (function() {
             }
             this.driver.get(url)
         })
-        .define('[Given|And|When] I visit the user page of (.*)', function(user) {
-            var url = 'http://localhost:' +
-                helper.application.helper.port +
-                '/user/' + user
-            this.driver.get(url)
-        })
         .when('I refresh the page', function() {
             var driver = this.driver
             driver.currentUrl(function(url) {

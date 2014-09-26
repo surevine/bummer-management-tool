@@ -8,6 +8,8 @@
 </div>
 {{/isMessage}}
 
+<button class="btn btn-primary pull-right {{#noUserData}}disabled{{/noUserData}} end-session" type="button" data-jid="{{ jid }}">Close all sessions</button>
+
 <h2>Online Resources</h2>
 
 <div class="table-responsive">
@@ -30,7 +32,9 @@
                 <td>{{ this.onlineresources }}</td>
                 <td>{{ this.ipaddresses }}</td>
                 <td>
-                    <em>Some actions</em>
+                    <i class="fa fa-times fa-fw fa-2x end-user-session" title="Close session" data-jid="{{ jid }}/{{ this.onlineresources }}">
+                    <span class="element-invisible">Close session</span>
+                    </i>
                 </td>
             </tr>
         {{/each}}

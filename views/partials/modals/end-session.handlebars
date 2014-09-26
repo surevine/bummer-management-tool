@@ -1,0 +1,20 @@
+<div class="modal fade" id="end-session" tabindex="-1" role="dialog" aria-labelledby="end-session" aria-hidden="true" aria-jid="{{ jid }}">
+  <div class="modal-dialog">
+    <form method="get" action="/user/end-session">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Are you sure?</h4>
+      </div>
+      <div class="modal-body">
+      <p>Are you sure that you would like to end user session<span class="multi"> for</span> <strong class="jid">{{ jid }}</strong> ?</p>
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" name="jid" value="{{ jid }}" />
+        <button type="submit" class="btn btn-primary">Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

@@ -3,6 +3,12 @@ var helper = require('massah/helper')
 
 module.exports = (function() {
     var library = helper.getLibrary()
+        .define('[Given|And|When] I visit the user page of (.*)', function(user) {
+            var url = 'http://localhost:' +
+                helper.application.helper.port +
+                '/user/' + user
+            this.driver.get(url)
+        })
         .then('none of the users is \'(.*)\'', function(user) {
             this.driver.element('table.user-table tbody').text(function(text) {
                 text.should.not.containEql(user)
