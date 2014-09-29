@@ -71,7 +71,7 @@ Scenario: No XMPP sessions shows expected table
 Scenario: Shows a the user information page
 
     Given I am logged in
-    And I click the 'Users' link
+    And I click the 'User List' link
     When I click to view information for user docbrown@localhost
 
 @database=is-admin

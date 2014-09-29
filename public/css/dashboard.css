@@ -66,6 +66,10 @@ body.dashboard {
   background-color: #428bca;
 }
 
+.nav-sidebar li a.header {
+    color: #ffffff;
+    background-color: #428bca;
+}
 
 /*
  * Main content
