@@ -99,3 +99,38 @@ Scenario: Session is cleared successfully
     Then I am redirected to the user page for docbrown@localhost
     And I see success message 'Session(s) ended successfully'
     And the user table has warning row 'This user currently has no active sessions'
+
+@database=is-admin,is-admin,is-admin
+@xmpp=user-stats-with-2-resources,session-cleared-successfully,user-stats-no-resources
+Scenario: Can clear a single session
+
+    Given I am logged in
+    And I visit the user page of docbrown@localhost
+    And I click to end a session
+    When I see the end session modal
+    And I click the 'End Session' button
+    Then I am redirected to the user page for docbrown@localhost
+    And I see success message 'Session(s) ended successfully'
+
+@database=is-admin
+@xmpp=user-stats-with-2-resources
+Scenario: Can dismiss the end session modal
+
+    Given I am logged in
+    And I visit the user page of docbrown@localhost
+    And I click to end a session
+    When I see the end session modal
+    And I click the 'No' button in the 'end-session' modal
+    Then the end session modal is closed
+
+@database=is-admin,is-admin,is-admin
+@xmpp=user-stats-with-2-resources,session-cleared-successfully-bare-jid,user-stats-no-resources
+Scenario: Can clear a all user sessions
+
+    Given I am logged in
+    And I visit the user page of docbrown@localhost
+    And I click the 'Close all sessions' button
+    When I see the end session modal
+    And I click the 'End Session' button
+    Then I am redirected to the user page for docbrown@localhost
+    And I see success message 'Session(s) ended successfully'

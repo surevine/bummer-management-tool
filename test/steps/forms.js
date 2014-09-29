@@ -6,8 +6,13 @@ module.exports = (function() {
         .when('I enter \'(.*)\' in the \'(.*)\' field', function(value, field) {
             this.driver.input('div.container input[name="' + field + '"]').enter(value)
         })
-        .define('[Given|When|And] I click the \'(.*)\' button', function(label) {
-            this.driver.button(label).click()
+        .define('[Given|When|And] I click the \'(.*)\' button(?: in the \'(.*)\' modal)?', function(label, modal) {
+            if (modal) {
+                this.driver.content(label, 'div[@id="' + modal + '"]//button').click()
+            } else {
+                this.driver.button(label).click()
+            }
+            
         })
     
     return library

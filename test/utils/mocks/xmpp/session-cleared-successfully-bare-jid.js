@@ -9,7 +9,7 @@ module.exports = function() {
             validator: function(stanza) {
                 var field = stanza.getChild('command').getChild('x').getChild('field')
                 field.attrs.var.should.equal('accountjids')
-                field.getChildText('value').should.equal('docbrown@localhost/delorean')
+                field.getChildText('value').should.equal('docbrown@localhost')
             },
             response: function() {
                 return ltx.parse('' +
