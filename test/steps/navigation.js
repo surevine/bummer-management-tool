@@ -6,6 +6,9 @@ module.exports = (function() {
         .define('[Given|And|When] I visit (?:the )?(.*) page$', function(page) {
             var url = 'http://localhost:' + helper.application.helper.port + '/'
             switch (page) {
+                case 'add user':
+                    url += 'user/add'
+                    break
                 case 'login':
                     url += 'login'
                     break

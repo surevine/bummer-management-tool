@@ -5,5 +5,6 @@ module.exports = {
     
     USER_LIST: 'http://jabber.org/protocol/admin#get-registered-users-list',
     USER_STATS: 'http://jabber.org/protocol/admin#user-stats',
-    END_USER_SESSION: 'http://jabber.org/protocol/admin#end-user-session'
+    END_USER_SESSION: 'http://jabber.org/protocol/admin#end-user-session',
+    USER_ADD: 'http://jabber.org/protocol/admin#add-user'
 }

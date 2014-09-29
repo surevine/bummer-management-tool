@@ -1,4 +1,3 @@
-@Only
 Feature: Add a user
 
 Scenario: I am kicked from user page when not logged in
@@ -27,6 +26,14 @@ Scenario: Entering an invalid user name displays an error
     When I click the 'Add User' button
     Then I see error message 'You must enter a valid user name'
 
+Scenario: Attempt to create 'admin' user returns error
+
+    Given I am logged in
+    And I visit the add user page
+    And I enter 'admin' in the 'local' field
+    And I click the 'Add User' button
+    Then I see error message 'Sorry, this is a restricted user'
+    
 @database=database-error
 Scenario: A database error returns expected message
 
@@ -36,7 +43,6 @@ Scenario: A database error returns expected message
     When I click the 'Add User' button
     Then I see error message 'We experienced a server problem, apologies!'
 
-@pending
 @database=no-results
 Scenario: No results shows expected error message (i.e. not an admin)
 
@@ -63,7 +69,7 @@ Scenario: XMPP error (functionality not available or similar) returns expected e
     And I visit the add user page
     And I enter 'mrstrickland' in the 'local' field
     When I click the 'Add User' button
-    Then I see error message 'Error adding a user, please contact support'
+    Then I see error message 'Error adding user, please contact support'
 
 @database=is-admin
 @xmpp=add-user-already-exists
@@ -73,15 +79,29 @@ Scenario: User already exists returns an error
     And I visit the add user page
     And I enter 'mrstrickland' in the 'local' field
     When I click the 'Add User' button
-    Then I see error message 'User already exists, see mrstrickland@localhost'
+    Then I see error message 'User already exists'
 
-@database=is-admin,is-admin
-@xmpp=add-user-success,user-stats-no-resources
+@database=is-admin
+@xmpp=add-user-success
 Scenario: Shows error if user does not exist
 
     Given I am logged in
     And I visit the add user page
     And I enter 'mrstrickland' in the 'local' field
     When I click the 'Add User' button
-    Then I am redirected to the user page for mrstrickland@localhost
-    And I see success message 'User created successfully'
+    Then I see success message 'User has been created, see below for details'
+    And I see the added user details
+
+@database=is-admin
+@xmpp=add-user-success
+Scenario: I can toggle password visibility
+
+    Given I am logged in
+    And I visit the add user page
+    And I enter 'mrstrickland' in the 'local' field
+    When I click the 'Add User' button
+    Then the new password has class 'hide-password-dark'
+    And I click the new password
+    And the new password does not have class 'hide-password-dark'
+    And I click the new password
+    And the new password has class 'hide-password-dark'

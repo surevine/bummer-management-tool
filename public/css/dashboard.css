@@ -7,6 +7,19 @@ body.dashboard {
   padding-top: 50px;
 }
 
+body.dashboard strong.post-label {
+    line-height: 2.3em;
+}
+
+body.dashboard p.hide-password {
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+body.dashboard p.hide-password-dark {
+    background-color: #333;
+}
 
 /*
  * Global add-ons

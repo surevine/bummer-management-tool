@@ -27,4 +27,8 @@ $(document).ready(function() {
     $('#end-session button.end-session-submit').click(function() {
         document.location.href = '/user/end-session/' + $('#end-session strong.jid').html()
     })
+    
+    $('p.hide-password').click(function() {
+        $(this).toggleClass('hide-password-dark')
+    })
 })
