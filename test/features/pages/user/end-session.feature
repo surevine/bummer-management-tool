@@ -91,7 +91,7 @@ Scenario: User does not exist shows expected error
     And the user table has warning row 'This user currently has no active sessions'
 
 @database=is-admin,is-admin
-@xmpp=session-cleared-successfully,user-stats-no-resources
+@xmpp=session-cleared-successfully-bare-jid,user-stats-no-resources
 Scenario: Session is cleared successfully
 
     Given I am logged in
