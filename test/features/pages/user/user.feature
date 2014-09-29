@@ -51,7 +51,7 @@ Scenario: XMPP authentication error returns expected error
 
 @database=is-admin
 @xmpp=user-stats-service-unavailable
-Scenario: XMPP error (functionality not available or similar) returns expected errror
+Scenario: XMPP error (functionality not available or similar) returns expected error
 
     Given I am logged in
     And I visit the user page of docbrown@localhost

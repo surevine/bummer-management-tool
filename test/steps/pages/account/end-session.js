@@ -6,7 +6,7 @@ module.exports = (function() {
         .define('[Given|And|When] I visit the end session page of (.*)', function(user) {
             var url = 'http://localhost:' +
                 helper.application.helper.port +
-                '/user/end-session?jid=' + user
+                '/user/end-session/' + user
             this.driver.get(url)
         })
     

@@ -23,4 +23,8 @@ $(document).ready(function() {
     
     $('.user-table').on('click', 'i.end-user-session', endSession)
     $('button.end-session').click(endSession)
+    
+    $('#end-session button.end-session-submit').click(function() {
+        document.location.href = '/user/end-session/' + $('#end-session strong.jid').html()
+    })
 })

@@ -18,6 +18,9 @@ module.exports = (function() {
                 case 'user':
                     url += 'user'
                     break
+                case 'end session':
+                    url += 'user/end-session'
+                    break
                 case 'home':
                     break
                 case 'a random':
@@ -37,7 +40,7 @@ module.exports = (function() {
         .when('I click the \'(.*)\' link', function(linkText) {
             this.driver.content(linkText, 'a').click()
         })
-        .then('I am redirected to the (.*) page', function(page) {
+        .then('I am redirected to the (.*) page(?: for (.*))?', function(page, jid) {
             var path = null
             switch (page) {
                 case 'account':
@@ -51,6 +54,9 @@ module.exports = (function() {
                     break
                 case 'login':
                     path = '/login'
+                    break
+                case 'user':
+                    path = '/user/' + jid
                     break
                 default:
                     throw new Error('Unknown page')

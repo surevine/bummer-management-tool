@@ -1,5 +1,5 @@
 module.exports = function() {
     return [
-        { error: { serverError: true }, data: null }   
+        { error: { type: 'database' }, data: null }   
     ]
 }

@@ -31,7 +31,7 @@ Scenario: XMPP authentication error returns expected error
 
 @database=is-admin
 @xmpp=user-list-service-unavailable
-Scenario: XMPP error (functionality not available or similar) returns expected errror
+Scenario: XMPP error (functionality not available or similar) returns expected error
 
     Given I am logged in
     And I click the 'Users' link
