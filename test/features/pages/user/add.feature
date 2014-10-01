@@ -26,6 +26,22 @@ Scenario: Entering an invalid user name displays an error
     When I click the 'Add User' button
     Then I see error message 'You must enter a valid user name'
 
+Scenario: Entering a longer invalid user name displays an error
+
+    Given I am logged in
+    And I visit the add user page
+    And I enter 'under-the-sea@dance' in the 'local' field
+    When I click the 'Add User' button
+    Then I see error message 'You must enter a valid user name'
+
+Scenario: Entering a user name which is too long returns error
+
+    Given I am logged in
+    And I visit the add user page
+    And I enter '0123456789012345678901234567890123456789012345678901234567890123456789A' in the 'local' field
+    When I click the 'Add User' button
+    Then I see error message 'You must enter a valid user name'
+    
 Scenario: Attempt to create 'admin' user returns error
 
     Given I am logged in

@@ -24,6 +24,9 @@ module.exports = (function() {
                 case 'end session':
                     url += 'user/end-session'
                     break
+                case 'delete user':
+                    url += 'user/delete'
+                    break
                 case 'home':
                     break
                 case 'a random':

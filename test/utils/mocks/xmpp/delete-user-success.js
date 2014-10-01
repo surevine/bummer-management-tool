@@ -9,14 +9,14 @@ module.exports = function() {
             validator: function(stanza) {
                 var field = stanza.getChild('command').getChild('x').getChild('field')
                 field.attrs.var.should.equal('accountjid')
-                field.getChildText('value').should.equal('mrstrickland@localhost')
+                field.getChildText('value').should.equal('docbrown@localhost')
             },
             response: function() {
                 return ltx.parse('' +
                     '<iq to="admin@localhost" from="localhost" type="result">' +
                     '<command xmlns="http://jabber.org/protocol/commands" ' +
                         'sessionid="1234567890987654321" ' +
-                        'node="' + Xmpp.USER_ADD + '" status="executing">' +
+                        'node="' + Xmpp.USER_DELETE + '" status="executing">' +
                         '<x xmlns="jabber:x:data" type="form">' +
                             '<field var="accountjid" type="jid-single"/>' +
                         '</x>' +
@@ -34,11 +34,12 @@ module.exports = function() {
                     '<iq to="admin@localhost" from="localhost" type="result">' +
                         '<command xmlns="http://jabber.org/protocol/commands" ' +
                             'sessionid="1234567890987654321" ' +
-                            'node="' + Xmpp.USER_ADD + '" status="completed">' +
+                            'node="' + Xmpp.USER_DELETE + '" status="completed">' +
                             '<x xmlns="jabber:x:data" type="form">' +
-                                 '<field var="accountjid"/>' +
+                                 '<field var="max_items" type="list-multi"><value>all</value></field>' +
+                                 '<field var="userjid"/>' +
                             '</x>' +
-                            '<note type="info">Added user mrstrickland@localhost</note>' +
+                            '<note type="info">Deleted user linda@localhost</note>' +
                         '</command>' +
                     '</iq>'
                 )

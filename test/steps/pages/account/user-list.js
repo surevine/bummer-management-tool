@@ -9,6 +9,9 @@ module.exports = (function() {
                 '/user/' + user
             this.driver.get(url)
         })
+        .given('I click to delete a user', function() {
+            this.driver.element('i.delete-user').click()
+        })
         .then('none of the users is \'(.*)\'', function(user) {
             this.driver.element('table.user-table tbody').text(function(text) {
                 text.should.not.containEql(user)
