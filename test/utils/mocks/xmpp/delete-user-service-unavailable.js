@@ -20,7 +20,7 @@ module.exports = function() {
                   x.attrs.type.should.equal('submit')
                   var fields = x.getChildren('field')
                   fields.length.should.equal(1)
-                  fields[0].attrs.var.should.equal('accountjid')
+                  fields[0].attrs.var.should.equal('accountjids')
                   fields[0].getChildText('value').should.equal('docbrown@localhost')
               },
               response: function() {

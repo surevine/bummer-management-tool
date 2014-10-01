@@ -18,7 +18,7 @@ module.exports = function() {
                         'sessionid="1234567890987654321" ' +
                         'node="' + Xmpp.USER_DELETE + '" status="executing">' +
                         '<x xmlns="jabber:x:data" type="form">' +
-                            '<field var="accountjid" type="jid-single"/>' +
+                            '<field var="accountjids" type="jid-single"/>' +
                         '</x>' +
                     '</command>' +
                     '</iq>'
@@ -37,7 +37,7 @@ module.exports = function() {
                             'node="' + Xmpp.USER_DELETE + '" status="completed">' +
                             '<x xmlns="jabber:x:data" type="form">' +
                                  '<field var="max_items" type="list-multi"><value>all</value></field>' +
-                                 '<field var="userjid"/>' +
+                                 '<field var="accountjids"/>' +
                             '</x>' +
                             '<note type="error">Could not delete user</note>' +
                         '</command>' +
