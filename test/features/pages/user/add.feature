@@ -38,7 +38,7 @@ Scenario: Entering a user name which is too long returns error
 
     Given I am logged in
     And I visit the add user page
-    And I enter '0123456789012345678901234567890123456789012345678901234567890123456789A' in the 'local' field
+    And I enter '01234567890123456789012345678901234567890123456789012345678901234567890123456789' in the 'local' field
     When I click the 'Add User' button
     Then I see error message 'You must enter a valid user name'
     

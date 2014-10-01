@@ -3,10 +3,20 @@ $(document).ready(function() {
         $('.user-table').DataTable()
     }
     
-    $('.user-table').on('click', 'i.delete-user', function(e) {
-        $('#delete-user span.jid').html($(this).attr('data-jid'))
+    var setupToDeleteUser = function(e) {
+        if (e) {
+            e.preventDefault()
+            e.stopPropagation()
+        }
+        var jid = $(this).attr('data-jid')
+        $('#delete-user span.jid').html(jid)
+        $('#delete-user a').attr('href', '/user/delete/' + jid)
         $('#delete-user').modal('show') 
-    })
+    }
+    
+    $('.user-table').on('click', 'i.delete-user', setupToDeleteUser)
+    
+    $('button.delete-user').click(setupToDeleteUser)
     
     var endSession = function(e) {
         var jid = $(this).attr('data-jid')
