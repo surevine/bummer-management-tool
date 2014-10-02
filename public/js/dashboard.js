@@ -3,6 +3,9 @@ $(document).ready(function() {
         $('.user-table').DataTable()
     }
     
+        
+    /* ---- Delete user ---- */
+    
     var setupToDeleteUser = function(e) {
         if (e) {
             e.preventDefault()
@@ -13,11 +16,54 @@ $(document).ready(function() {
         $('#delete-user a').attr('href', '/user/delete/' + jid)
         $('#delete-user').modal('show') 
     }
-    
     $('.user-table').on('click', 'i.delete-user', setupToDeleteUser)
-    
     $('button.delete-user').click(setupToDeleteUser)
     
+    
+    /* ---- Reset password ---- */
+    
+    var passwordReset = function(e) {
+        if (e) {
+            e.preventDefault()
+            e.stopPropagation()
+        }
+        var jid = $(this).attr('data-jid')
+        $('#reset-user-password span.jid').html(jid)
+        $('#reset-user-password').modal('show') 
+    }
+    
+    $('.user-table').on('click', 'i.reset-user-password', passwordReset)
+    $('button.reset-user-password').click(passwordReset)
+        
+    $('#reset-user-password button.reset-password').click(function() {
+        var jid = $('#reset-user-password span.jid').html()
+        var url = '/user/password-reset/' + jid
+        
+        var passwordResetDone = function(data) {
+            $('#reset-user-password').modal('hide')
+
+            if (404 === data.status) {
+                data = {
+                    error: 'Unknown error, please close and try again'
+                }
+            }
+            if (data.error) {
+                var modal = $('#reset-user-password-fail')
+                modal.find('span.error').html(data.error)
+                modal.modal('show')
+            } else {
+                var modal = $('#reset-user-password-success')
+                modal.find('p.hide-password').html(data.password)
+                modal.find('p.jid').html(jid)
+                modal.modal('show')
+            }
+        }
+        var xhr = $.get(url, {}, passwordResetDone)
+        xhr.fail(passwordResetDone)
+    })
+    
+    
+    /* ---- End session ---- */
     var endSession = function(e) {
         var jid = $(this).attr('data-jid')
         $('#end-session strong.jid').html(jid)
@@ -38,7 +84,12 @@ $(document).ready(function() {
         document.location.href = '/user/end-session/' + $('#end-session strong.jid').html()
     })
     
+        
+    /* ---- Toggle password view ---- */
+    
     $('p.hide-password').click(function() {
         $(this).toggleClass('hide-password-dark')
     })
+    
+    
 })

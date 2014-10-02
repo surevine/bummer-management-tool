@@ -1,6 +1,6 @@
 Feature: Delete user
 
-Scenario: I am kicked from end user session page when not logged in
+Scenario: I am kicked from delete user page when not logged in
 
     Given I visit the delete user page of docbrown@localhost
     Then I am redirected to the login page

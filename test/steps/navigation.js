@@ -27,6 +27,9 @@ module.exports = (function() {
                 case 'delete user':
                     url += 'user/delete'
                     break
+                case 'reset password':
+                    url += 'user/password-reset'
+                    break
                 case 'home':
                     break
                 case 'a random':

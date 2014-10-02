@@ -7,5 +7,6 @@ module.exports = {
     USER_STATS: 'http://jabber.org/protocol/admin#user-stats',
     END_USER_SESSION: 'http://jabber.org/protocol/admin#end-user-session',
     USER_ADD: 'http://jabber.org/protocol/admin#add-user',
-    USER_DELETE: 'http://jabber.org/protocol/admin#delete-user'
+    USER_DELETE: 'http://jabber.org/protocol/admin#delete-user',
+    CHANGE_USER_PASSWORD: 'http://jabber.org/protocol/admin#change-user-password'
 }
