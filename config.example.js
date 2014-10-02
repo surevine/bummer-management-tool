@@ -6,5 +6,8 @@ module.exports = {
             password: 'tellnoone',
             database: 'managementconsole'
         }
+    },
+    cookie: {
+        secret: 'a-cookie-secret'
     }
 }
