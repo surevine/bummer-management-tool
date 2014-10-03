@@ -1,6 +1,6 @@
 {
   "name": "management-tool",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A management tool for the bummer / Buddycloud hosting stack",
   "main": "index.js",
   "scripts": {
