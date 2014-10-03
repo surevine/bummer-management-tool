@@ -1,0 +1,37 @@
+<h1 class="page-header">Administrator List</h1>
+
+{{> message }}
+
+<div class="table-responsive">
+    <table class="user-table table">
+        <thead>
+            <tr>
+               <th>Admin</th>
+               <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody class="table-striped table-hover">
+        {{#noUsers}}
+            <tr class="warning text-centered">
+                <td colspan="2">There are currently no admins</td>
+            </tr>
+        {{/noUsers}}
+        {{#each users}}
+            <tr>
+                <td>{{ this.jid }}</td>
+                <td>
+                    <i class="fa fa-trash-o fa-fw fa-2x delete-admin" title="Delete admin" data-jid="{{ this.jid }}">
+                    <span class="element-invisible">Delete admin</span>
+                    </i>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+        <tfoot>
+            <tr>
+               <th>Admin</th>
+               <th>Actions</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -18,6 +18,9 @@ module.exports = (function() {
                 case 'user list':
                     url += 'account/users'
                     break
+                case 'admin list':
+                    url += 'admin/list'
+                    break
                 case 'user':
                     url += 'user'
                     break
