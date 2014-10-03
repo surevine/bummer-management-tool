@@ -83,6 +83,22 @@ $(document).ready(function() {
     $('#end-session button.end-session-submit').click(function() {
         document.location.href = '/user/end-session/' + $('#end-session strong.jid').html()
     })
+
+    
+    /* ---- Remove administrator ---- */
+    
+    var setupToRemoveAdmin = function(e) {
+        if (e) {
+            e.preventDefault()
+            e.stopPropagation()
+        }
+        var jid = $(this).attr('data-jid')
+        $('#remove-admin span.jid').html(jid)
+        $('#remove-admin a').attr('href', '/admin/remove/' + jid)
+        $('#remove-admin').modal('show')
+        console.log($('#remove-admin'))
+    }
+    $('.user-table').on('click', 'i.remove-admin', setupToRemoveAdmin)
     
         
     /* ---- Toggle password view ---- */

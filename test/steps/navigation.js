@@ -30,6 +30,9 @@ module.exports = (function() {
                 case 'delete user':
                     url += 'user/delete'
                     break
+                case 'remove admin':
+                    url += 'admin/remove'
+                    break
                 case 'reset password':
                     url += 'user/password-reset'
                     break
@@ -69,6 +72,9 @@ module.exports = (function() {
                     break
                 case 'login':
                     path = '/login'
+                    break
+                case 'admin list':
+                    path = '/admin/list'
                     break
                 case 'user':
                     path = '/user/' + jid
