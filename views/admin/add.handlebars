@@ -1,0 +1,23 @@
+<h1 class="page-header">Add Administrator</h1>
+
+{{> message }}
+
+<p>Fill in the form below to add a user to the list of allowed administrators. Only the username is required.</p>
+<hr/>
+<form method="post" action="/admin/add" role="form" class="form-horizontal">
+    
+  <div class="form-inline">
+    <label for="add-admin-username" class="col-sm-2 control-label">JID</label>
+    <div class="col-sm-8">
+      <div class="col-xs-6">
+      <input type="text" class="form-control" id="add-admin-username" name="local" placeholder="Enter username" />
+      </div>
+      <strong class="post-label">@ {{ domain }}</strong>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success add-admin">Add Admin</button>
+
+</form>
+
+<hr/>

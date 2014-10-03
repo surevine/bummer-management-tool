@@ -33,6 +33,9 @@ module.exports = (function() {
                 case 'reset password':
                     url += 'user/password-reset'
                     break
+                case 'add admin':
+                    url += 'admin/add'
+                    break
                 case 'home':
                     break
                 case 'a random':

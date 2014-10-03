@@ -1,4 +1,3 @@
-@Only
 Feature: Admin list
 
 Scenario: I am kicked from accounts page when not logged in

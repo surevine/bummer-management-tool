@@ -66,7 +66,7 @@ Scenario: No results shows expected error message (i.e. not an admin)
     And I visit the add user page
     And I enter 'mrstrickland' in the 'local' field
     When I click the 'Add User' button
-    Then I see error message 'You are not an admin and therefore can not obtain user details'
+    Then I see error message 'You are not an admin and therefore can not add a user'
 
 @database=is-admin-xmpp-fail
 Scenario: XMPP authentication error returns expected error
